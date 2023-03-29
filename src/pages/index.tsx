@@ -19,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
       <main
-        className={`${inter.className} px-5 overflow-x-hidden desktop:max-w-[1280px]`}
+        className={`${inter.className} px-5 overflow-x-hidden desktop:max-w-[1280px] mx-auto`}
       >
         <header>
           <Header />
