@@ -64,7 +64,7 @@ export default function Header({}: Props) {
             <Close onClick={closeMenu} />
           </div>
           <nav className="w-full">
-            <ul className="flex flex-col desktop:flex-row gap-5 desktop:justify-end desktop:items-center">
+            <ul className="flex flex-col desktop:flex-row gap-5 desktop:justify-between desktop:items-center">
               {["Home", "New", "Popular", "Trending", "Categories"].map(
                 (nav, i) => {
                   i = i + 1;
