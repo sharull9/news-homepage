@@ -8,34 +8,34 @@ import { useRouter } from "next/router";
 type Props = {};
 
 export default function Header({}: Props) {
-  const [menuPosition, setMenuPosition] = useState<Number>(-20);
+  const [menuPosition, setMenuPosition] = useState("-20px");
   const [menuDisplay, setMenuDisplay] = useState<Number>(1);
   const router = useRouter().pathname;
   const [navIndex, setNavIndex] = useState<Number>(1);
   function openMenu() {
-    setMenuPosition(0);
+    setMenuPosition("0px");
     setMenuDisplay(1);
   }
   function closeMenu() {
-    setMenuPosition(120);
+    setMenuPosition("120%");
     setMenuDisplay(0);
   }
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth > 375) {
-        setMenuPosition(-20);
+        setMenuPosition("-20px");
         setMenuDisplay(1);
       } else {
-        setMenuPosition(120);
+        setMenuPosition("120%");
         setMenuDisplay(0);
       }
     });
     window.addEventListener("load", () => {
       if (window.innerWidth > 375) {
-        setMenuPosition(-20);
+        setMenuPosition("-20px");
         setMenuDisplay(1);
       } else {
-        setMenuPosition(120);
+        setMenuPosition("120%");
         setMenuDisplay(0);
       }
     });
@@ -58,7 +58,7 @@ export default function Header({}: Props) {
         </div>
         <div
           className="absolute w-3/4 h-[100vh] desktop:h-auto pl-5 pt-20 right-[-1.25rem] bg-white desktop:col-span-2 desktop:relative flex desktop:justify-center desktop:items-center desktop:p-0 desktop:w-full shadow-2xl desktop:shadow-none z-10 transition-all duration-700 ease-in-out"
-          style={{ translate: `${menuPosition}%`, opacity: `${menuDisplay}` }}
+          style={{ translate: `${menuPosition}`, opacity: `${menuDisplay}` }}
         >
           <div className="absolute top-9 right-5 desktop:hidden">
             <Close onClick={closeMenu} />
