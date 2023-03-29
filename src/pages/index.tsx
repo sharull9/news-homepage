@@ -18,7 +18,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon-32x32.png" />
       </Head>
-      <main className={`${inter.className} px-5 overflow-x-hidden`}>
+      <main
+        className={`${inter.className} px-5 overflow-x-hidden desktop:max-w-[1280px]`}
+      >
         <header>
           <Header />
         </header>
