@@ -9,7 +9,7 @@ type Props = {};
 
 export default function Header({}: Props) {
   const [menuPosition, setMenuPosition] = useState("-20px");
-  const [menuDisplay, setMenuDisplay] = useState<Number>(1);
+  const [menuDisplay, setMenuDisplay] = useState<Number>(0);
   const router = useRouter().pathname;
   const [navIndex, setNavIndex] = useState<Number>(1);
   function openMenu() {
@@ -22,7 +22,7 @@ export default function Header({}: Props) {
   }
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 375) {
+      if (window.innerWidth > 450) {
         setMenuPosition("-20px");
         setMenuDisplay(1);
       } else {
@@ -31,7 +31,7 @@ export default function Header({}: Props) {
       }
     });
     window.addEventListener("load", () => {
-      if (window.innerWidth > 375) {
+      if (window.innerWidth > 450) {
         setMenuPosition("-20px");
         setMenuDisplay(1);
       } else {
@@ -39,11 +39,8 @@ export default function Header({}: Props) {
         setMenuDisplay(0);
       }
     });
-    if (router == "/new") {
-      setNavIndex(2);
-    }
-  }, []);
-  console.log(router);
+  }, [router]);
+  console.log(menuPosition);
 
   return (
     <>
@@ -65,29 +62,7 @@ export default function Header({}: Props) {
           </div>
           <nav className="w-full">
             <ul className="flex flex-col desktop:flex-row gap-5 desktop:justify-between desktop:items-center">
-              {["Home", "New", "Popular", "Trending", "Categories"].map(
-                (nav, i) => {
-                  i = i + 1;
-                  return (
-                    <li key={nav}>
-                      <Link
-                        href={`/${
-                          nav == "Home" ? "" : nav.toLocaleLowerCase()
-                        }`}
-                      >
-                        <p
-                          className={`hover:text-primary-400 ${
-                            i == navIndex ? "text-primary-400" : "text-current"
-                          }`}
-                        >
-                          {nav}
-                        </p>
-                      </Link>
-                    </li>
-                  );
-                }
-              )}
-              {/* <li className="hover:text-primary-400">
+              <li className="text-primary-400">
                 <Link href="/">Home</Link>
               </li>
               <li className="hover:text-primary-400">
@@ -101,7 +76,7 @@ export default function Header({}: Props) {
               </li>
               <li className="hover:text-primary-400">
                 <Link href="/categories">Categories</Link>
-              </li> */}
+              </li>
             </ul>
           </nav>
         </div>

@@ -27,8 +27,8 @@ function HeroSection({}: Props) {
   });
 
   return (
-    <div className="flex gap-5">
-      <div className="grid grid-row-2 w-[70%]">
+    <div className="flex gap-5 flex-col desktop:flex-row">
+      <div className="grid grid-row-2 w-full desktop:w-[70%] pb-5 desktop:pb-0">
         <div className="w-full h-72 relative overflow-hidden rounded-md">
           <Image
             src={mobile ? mobileBgImage : desktopBgImage}
@@ -54,46 +54,48 @@ function HeroSection({}: Props) {
           </div>
         </div>
       </div>
-      <div className="w-[30%] bg-neutral-800 rounded-lg px-3 pt-5">
+      <div className="w-full desktop:w-[30%] bg-neutral-800 rounded-lg px-3 py-5">
         <div>
-          <h2 className="desktop:text-3xl text-primary-200 font-bold">
+          <h2 className="text-2xl desktop:text-3xl text-primary-200 font-bold">
             <Link href="/new">New</Link>
           </h2>
         </div>
-        {[
-          {
-            title: "Hydrogen VS Electronic Cars",
-            desc: "Will hydrogen-fueled cars ever catch up to EVs?",
-          },
-          {
-            title: "The Downsides of AI Artistry",
-            desc: "What are the possible adverse effects of on-demand AI image generation?",
-          },
-          {
-            title: "Is VC Funding Drying Up?",
-            desc: "Private funding by VC firms is down 50% YOY. We take a look at what that means.",
-          },
-        ].map((items) => {
-          return (
-            <div
-              key={items.title}
-              className="desktop:py-5 border-b border-neutral-600"
-            >
-              <h3 className="font-bold text-white desktop:text-lg hover:text-primary-200">
-                <Link
-                  href={`/article/${items.title
-                    .toLocaleLowerCase()
-                    .replaceAll(" ", "-")}`}
-                >
-                  {items.title}
-                </Link>
-              </h3>
-              <p className="text-neutral-400 desktop:text-sm py-1">
-                {items.desc}
-              </p>
-            </div>
-          );
-        })}
+        <div>
+          {[
+            {
+              title: "Hydrogen VS Electronic Cars",
+              desc: "Will hydrogen-fueled cars ever catch up to EVs?",
+            },
+            {
+              title: "The Downsides of AI Artistry",
+              desc: "What are the possible adverse effects of on-demand AI image generation?",
+            },
+            {
+              title: "Is VC Funding Drying Up?",
+              desc: "Private funding by VC firms is down 50% YOY. We take a look at what that means.",
+            },
+          ].map((items) => {
+            return (
+              <div
+                key={items.title}
+                className="py-5 border-b border-neutral-600"
+              >
+                <h3 className="font-bold text-white desktop:text-lg hover:text-primary-200">
+                  <Link
+                    href={`/article/${items.title
+                      .toLocaleLowerCase()
+                      .replaceAll(" ", "-")}`}
+                  >
+                    {items.title}
+                  </Link>
+                </h3>
+                <p className="text-neutral-400 desktop:text-sm py-1">
+                  {items.desc}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
