@@ -1,0 +1,20 @@
+{
+    "redirects": [
+        {
+            "source": "/new",
+            "destination": "/"
+        },
+        {
+            "source": "/popular",
+            "destination": "/"
+        },
+        {
+            "source": "/trending",
+            "destination": "/"
+        },
+        {
+            "source": "/categories",
+            "destination": "/"
+        }
+    ]
+}
